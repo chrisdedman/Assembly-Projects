@@ -22,7 +22,7 @@ ExitProcess proto, dwExitCode: dword
 
 .code
 main PROC
-    call	Randomize       ; init random generator
+    call	Randomize       ; init random generator (Irvine32 procedure)
     call	Randy
 EndProgram:
     invoke ExitProcess, 0
@@ -39,15 +39,15 @@ Randy PROC
 
 L1 :
     mov eax, 51                 ; values 0 - 50
-    call RandomRange            ; generate random int
+    call RandomRange            ; generate random int (Irvine32 procedure)
     add eax, 50                 ; add 50 to EAX to be in range 50 - 100
     mov edx, OFFSET prompt1
-    call WriteString            ; Print prompt1
+    call WriteString            ; Print prompt1 (Irvine32 procedure)
     call WriteInt               ; Print the integer value generated
     mov edx, OFFSET prompt2
     call WriteString            ; Print prompt2
     call CalcGrade
-    call Crlf
+    call Crlf                   ; write an end-of-line sequence to console (Irvine32 procedure)
     loop L1
     ret
 Randy ENDP
@@ -93,7 +93,7 @@ GradeF :
     mov al, 'F'
 
 Done :
-    call WriteChar      ; Print the character value of the grade
+    call WriteChar      ; Print the character value of the grade (Irvine32 procedure)
     pop    edx          ; Restore Registers
     pop    ecx
     pop    eax
