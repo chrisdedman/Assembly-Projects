@@ -41,10 +41,10 @@ L1 :
     mov eax, 51                 ; values 0 - 50
     call RandomRange            ; generate random int
     add eax, 50                 ; add 50 to EAX to be in range 50 - 100
-    mov	edx, OFFSET prompt1
+    mov edx, OFFSET prompt1
     call WriteString            ; Print prompt1
     call WriteInt               ; Print the integer value generated
-    mov	edx, OFFSET prompt2
+    mov edx, OFFSET prompt2
     call WriteString            ; Print prompt2
     call CalcGrade
     call Crlf
